@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/AlaraEfe/BasketService/packages/config"
+	"github.com/AlaraEfe/BasketService/packages/db"
 	"github.com/AlaraEfe/BasketService/packages/logger"
 	"log"
 )
@@ -21,5 +22,7 @@ func main() {
 	// Seting Global Logger then close it
 	logger.NewLogger(cfg)
 	defer logger.Close()
+
+	db.ConnectDB(cfg)
 
 }
