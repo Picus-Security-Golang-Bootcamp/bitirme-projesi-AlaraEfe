@@ -5,7 +5,10 @@ import (
 	"github.com/AlaraEfe/BasketService/packages/config"
 	"github.com/AlaraEfe/BasketService/packages/db"
 	"github.com/AlaraEfe/BasketService/packages/logger"
+	"github.com/gin-gonic/gin"
 	"log"
+	"net/http"
+	"time"
 )
 
 func main() {
@@ -23,6 +26,15 @@ func main() {
 	logger.NewLogger(cfg)
 	defer logger.Close()
 
-	db.ConnectDB(cfg)
+	db := db.ConnectDB(cfg)
+
+	router := gin.Default()
+
+	server := &http.server{
+		Addr:         fmt.Sprintf(":%s", cfg.ServerConfig.Port),
+		Handler:      router,
+		ReadTimeout:  time.Duration(cfg.ServerConfig.ReadTimeoutSecs * int64(time.Second)),
+		WriteTimeout: time.Duration(cfg.ServerConfig.WriteTimeoutSecs * int64(time.Second)),
+	}
 
 }
