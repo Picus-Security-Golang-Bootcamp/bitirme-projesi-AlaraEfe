@@ -10,10 +10,10 @@ ServerConfig:
 
 JWTConfig:
   SessionTime: 3600
-  SecretKey: dummySecretKey
+  SecretKey: Development
 
 DBConfig:
-  DataSourceName: postgres://postgres:Password@localhost:5432/FinalProject?sslmode=disable
+  DataSourceName: postgres://postgres:Password@localhost:5432/db_Final_Project?sslmode=disable
   MaxOpen: 50
   MaxIdle: 50
   MaxLifetime: 5
