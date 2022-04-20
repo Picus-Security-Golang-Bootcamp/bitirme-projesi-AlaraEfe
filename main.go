@@ -77,6 +77,6 @@ func main() {
 
 	}()
 
-	log.Println("Book store service started")
+	log.Println("Basket service started")
 
 }

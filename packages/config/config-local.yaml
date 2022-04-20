@@ -13,7 +13,7 @@ JWTConfig:
   SecretKey: Development
 
 DBConfig:
-  DataSourceName: postgres://postgres:Password@localhost:5432/db_Final_Project?sslmode=disable
+  DataSourceName: postgres://postgres:Password@localhost:5432/Final_Project_db_Picus?sslmode=disable
   MaxOpen: 50
   MaxIdle: 50
   MaxLifetime: 5
